@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP: Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+ </head>
+<body>
+    <img src="#">
+    <!-- <script>
+        const img = document.querySelector('img')
+        fetch('https://api.giphy.com/v1/gifs/translate?api_key=qMhyhxat32DtN7l41ZmkIKeAcGQ6R9NG&S=cats',{mode:"cors"})
+        
+        .then(function(response){
+            return (response.json());
+        })
+
+        .then(function(response){
+            console.log(response.data.images.original.url)
+            img.src = response.data.images.original.url
+        });
+
+    </script> -->
+    
+    <!-- ZaxWuZj2TFaUxJHfAAcCNcr11wqhJnAT
+    
+    328328-->
+    <script>
+    let city = 'London'
+    let locationz = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=ZaxWuZj2TFaUxJHfAAcCNcr11wqhJnAT&q=`+city+`&details=false`
+
+
+
+
+    const test = document.querySelector('img');
+    fetch(locationz, {mode: 'cors'})
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+
+      console.log(response[0].Key);
+      let abc = response[0].Key
+      return abc
+    })
+    .then(function(abc){
+
+        let forecast = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/`+ abc +`?apikey=ZaxWuZj2TFaUxJHfAAcCNcr11wqhJnAT`       
+
+        fetch(forecast)
+        .then(function(response2){
+            return (response2.json())
+        })
+        .then(function(response2){
+            console.log(response2)
+        })
+    })
+
+
+
+
+
+    </script>
+</body>
+</html>
